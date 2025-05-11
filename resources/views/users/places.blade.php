@@ -1,5 +1,3 @@
-
-{{-- resources/views/users/places.blade.php --}}
 @extends('layouts.app')
 
 @section('title', "{$user->name}'s Places - " . config('app.name'))

@@ -33,7 +33,7 @@ class SignupController extends Controller
             'password' => Hash::make($request->password), // Hashing the password
         ]);
 
-        // Optionally, you may log the user in, redirect them, etc.
+        
         return redirect()->route('users.index')->with('success', 'Signup successful, welcome!');
     }
 

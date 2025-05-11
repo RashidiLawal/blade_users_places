@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Place; // Make sure you have a Place model
+use App\Models\Place;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -51,7 +51,7 @@ class PlaceController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'address' => $request->input('address'),
-            'creator_id' => Auth::id(), // Assuming you want to attach the creator ID
+            'creator_id' => Auth::id(),
         ]);
 
         return redirect()->route('user.places', ['userId' => Auth::id()])->with('success', 'Place added successfully!'); // Redirect to user places with success message

@@ -1,4 +1,3 @@
-{{-- resources/views/places/create.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Add New Place - ' . config('app.name'))

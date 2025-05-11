@@ -67,21 +67,21 @@ class PageController extends Controller
             case '':
             case '/':
                 if ($this->isLoggedIn()) {
-                    return view('users.pages.users'); // Your users view
+                    return view('users.index'); // Your users view
                 } else {
                     return redirect()->route('auth');
                 }
 
             case 'auth':
                 if (!$this->isLoggedIn()) {
-                    return view('users.pages.auth'); // Your auth view 
+                    return view('users.pages.auth'); 
                 } else {
-                    return redirect()->route('auth'); // Assuming route name for home is 'home'
+                    return redirect()->route('auth'); 
                 }
 
             case 'places/new':
                 if ($this->isLoggedIn()) {
-                    return view('places.pages.new_place'); // Your new place view
+                    return view('places.pages.new_place'); 
                 } else {
                     return redirect()->route('auth');
                 }
@@ -93,7 +93,7 @@ class PageController extends Controller
             case preg_match('/^places\/(\d+)$/', $path, $matches) ? true : false:
                 $placeId = $matches[1];
                 if ($this->isLoggedIn()) {
-                    return view('places.pages.update_place', compact('placeId')); // Your update place view
+                    return view('places.pages.update_place', compact('placeId')); 
                 } else {
                     return redirect()->route('auth');
                 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User; // Make sure you have a User model
+use App\Models\User; 
 // use Illuminate\Support\Facades\Auth; // For using Laravel authentication
 use Illuminate\Support\Facades\Hash;
 

@@ -1,5 +1,5 @@
 {{-- resources/views/users/index.blade.php --}}
-@extends('layouts.app') {{-- Assuming you have a main layout in resources/views/layouts/app.blade.php --}}
+@extends('layouts.app') {{-- For the nav layout in resources/views/layouts/app.blade.php --}}
 
 @section('title', 'Users - ' . config('app.name'))
 

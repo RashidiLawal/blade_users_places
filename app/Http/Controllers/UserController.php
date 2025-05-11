@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User; // Ensure you have the User model. // Adjust the namespace if your User model is located elsewhere
-use App\Models\Place; // Ensure you have the Place model
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect; 
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Place;
+// use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Redirect; 
+// use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function show($userId)
     {
-        // Redirect to home if no userId provided
+        // Redirect to auth if no userId provided
         if (!$userId) {
             return redirect('/');
         }

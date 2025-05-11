@@ -1,4 +1,3 @@
-{{-- resources/views/shared/navigation.blade.php --}}
 <nav class="main-navigation">
     <div class="nav-logo">
         <a href="{{ url('/') }}">{{ config('app.name') }}</a>

@@ -1,5 +1,4 @@
-{{-- resources/views/places/edit.blade.php --}}
-@extends('layouts.app') {{-- Assuming you have a main layout in resources/views/layouts/app.blade.php --}}
+@extends('layouts.app') 
 
 @section('title', 'Update Place - ' . $place->title)
 

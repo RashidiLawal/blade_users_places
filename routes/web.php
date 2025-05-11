@@ -47,13 +47,13 @@ Route::get('/places/{id}/edit', [PlaceController::class, 'edit'])->name('places.
 
 // Route to handle the update of a specific place
 Route::put('/places/{id}', [PlaceController::class, 'update'])->name('places.update');
-// Route to show the edit form for a specific place
+
 
 // Route to delete a specific place
 Route::post('/places/delete', [PlaceController::class, 'delete'])->name('places.delete');
 
 Route::post('/logout', function() {
-    // Implement your logout logic here, for example, clear the session
+    
     session()->forget('user_id'); // Remove user_id from session
     return redirect('/auth'); // Redirect to authentication page
 });
