@@ -17,7 +17,7 @@ Route::get('/signup', fn () =>
 Route::post('/signup', [SignupController::class, 'store'])->name('signup');
 
 Route::get('/auth', [AuthController::class, 'showLoginForm'])->name('login'); // Show Login Form
-// Route::get('/', fn() => redirect('/'))->name('home');
+
 
 Route::post('/auth', [AuthController::class, 'login']); // Handle Login Submission
 

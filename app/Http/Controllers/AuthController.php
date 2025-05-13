@@ -34,7 +34,7 @@ class AuthController extends Controller
         if ($user && Hash::check($password, $user->password)) {
             // Authentication passed
             session(['user_id' => $user->id, 'user_name' => $user->name]); // Store user info in session
-            return redirect('/users'); // Redirect to the home page
+            return redirect('/users'); // Redirect to the all users page.
         }
 
         return back()->withErrors(['email' => 'Invalid credentials.'])->withInput(); // Return back with error

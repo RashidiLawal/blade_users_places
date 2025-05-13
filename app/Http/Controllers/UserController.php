@@ -20,13 +20,13 @@ class UserController extends Controller
     {
         // Redirect to auth if no userId provided
         if (!$userId) {
-            return redirect('/');
+            return redirect('/auth');
         }
 
         // Get user information
         $user = User::find($userId);
         if (!$user) {
-            return redirect('/'); // Redirect if user is not found
+            return redirect('/auth'); // Redirect if user is not found
         }
 
         // Get user's places

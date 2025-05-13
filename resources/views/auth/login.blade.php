@@ -1,4 +1,3 @@
-{{-- resources/views/auth/login.blade.php --}}
 @extends('layouts.app') {{-- The main layout in resources/views/layouts/app.blade.php --}}
 
 @section('title', 'Login - ' . config('app.name'))
@@ -42,7 +41,7 @@
             text-align: center;
         }
         .signup-link a {
-            color: #00695c; /* Use the same color as the button */
+            color: #00695c; 
             text-decoration: none;
         }
     </style>
