@@ -34,7 +34,7 @@ class SignupController extends Controller
         ]);
 
         
-        return redirect()->route('users.index')->with('success', 'Signup successful, welcome!');
+        return redirect()->route(route: 'users.index')->with(key: 'success', value: 'Signup successful, welcome!');
     }
 
 }
