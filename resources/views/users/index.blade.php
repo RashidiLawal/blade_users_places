@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- nav layout in resources/views/layouts/app.blade.php --}}
+@extends('layouts.app')
 
 @section('title', 'Users - ' . config('app.name'))
 
