@@ -37,6 +37,8 @@ Route::post('/places', [PlaceController::class, 'store'])->name('places.store');
 
 Route::get('/users/{userId}/places', [UserController::class, 'show'])->name('user.places');
 
+Route::get('/places', [UserController::class, 'showOwnPlaces'])->name('users.places');
+
 Route::get('/{path?}', [PageController::class, 'show'])->where('path', '.*'); // Catch all route
 
 // Route to display all places of a user

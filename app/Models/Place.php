@@ -12,12 +12,17 @@ class Place extends Model
   
     protected $table = 'places';
 
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class, 'creator_id');
+    // }
+
     
     protected $fillable = [
         'title',
         'description',
         'address',
-        'creator_id', //key for specific user
+        'creator_id', //foreignkey for specific user from placesMigration $table->foreignId
     ];
 
     

@@ -17,8 +17,14 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+
+     public function places()
+     {
+         return $this->hasMany(Place::class);
+     }
+
     protected $fillable = [
-        'name',
+        // 'name',
         'email',
         'password',
     ];

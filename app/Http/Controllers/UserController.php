@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Place;
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Redirect; 
 // use Illuminate\Http\Request;
 
@@ -16,6 +16,13 @@ class UserController extends Controller
         return view('users.index', compact('users')); // Return the view with users
     }
 
+    public function showOwnPlaces()
+    {
+        $user = Auth::user(); // Get the currently authenticated user
+        $places = $user->places; // Assuming you have a 'places' relationship
+
+        return view('users.places', compact('user', 'places'));
+    }
     public function show($userId)
     {
         // Redirect to auth if no userId provided

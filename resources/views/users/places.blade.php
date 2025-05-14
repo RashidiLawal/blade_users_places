@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "{$user->name}'s Places - " . config('app.name'))
+@section('title', "{$user}'s Places - " . config('app.name'))
 
 @section('content')
     <style>
