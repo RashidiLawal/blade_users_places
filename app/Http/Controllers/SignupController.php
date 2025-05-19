@@ -12,7 +12,7 @@ class SignupController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the signup data
+        // Validate user inputs
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',

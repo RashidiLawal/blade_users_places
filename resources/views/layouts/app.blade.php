@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> 
 </head>
 <body>
-    @include('shared.navigation') {{-- Include the navigation partial --}}
+    @include('shared.navigation') {{-- Includes the navigation partial --}}
     
     <div class="container">
         @yield('content')

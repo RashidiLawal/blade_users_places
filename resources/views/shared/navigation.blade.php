@@ -3,8 +3,9 @@
         <a href="{{ url('/') }}">{{ config('app.name') }}</a>
     </div>
     <ul class="nav-links">
-        <li><a href="{{ url('/users') }}">All Users</a></li>
+        
         @if (session()->has('user_id'))
+            <li><a href="{{ url('/users') }}">All Users</a></li>
             <li><a href="{{ url('places/new') }}">Add Place</a></li>
             <li>
                 <form action="{{ url('logout') }}" method="POST" style="display: inline;">

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/{path?}', [PageController::class, 'show'])->where('path', '.*');
 
 
-
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login'); // Show Login Form
 Route::get('/signup', fn () => 
      view('auth.signup'))->name('signup.form'); // Show the signup form
 
