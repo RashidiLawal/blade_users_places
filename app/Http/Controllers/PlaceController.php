@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Place;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -14,6 +15,7 @@ class PlaceController extends Controller
     {
         $places = Place::where('creator_id', $userId)->get(); // Fetch places by user ID
         $user = Auth::user(); // Get authenticated user information (if needed)
+        
 
         return view('users.places', compact('places', 'user')); // Return to places view
     }
@@ -52,6 +54,13 @@ class PlaceController extends Controller
             'description' => 'required|string',
             'address' => 'required|string|max:255',
         ]);
+
+        if (Auth::check()) {
+            $creatorId = Auth::id();
+        } else {
+            // Handle the case where the user is not authenticated
+            return redirect()->route('login')->with('error', 'You need to be logged in to create a place.');
+        }
 
         // Create a new place in the database
         Place::create([
