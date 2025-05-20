@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title'); // Title of the place
             $table->text('description')->nullable(); // Description of the place
             $table->string('address')->nullable(); // Address of the place
-            $table->foreignId('creator_id')->constrained('creators')->onDelete('cascade'); // Foreign key for user
+            $table->foreignId('creator_id')->constrained('users')->onDelete('cascade'); // Foreign key for user
             $table->timestamps(); // Created at and updated at timestamps
         });
     }
