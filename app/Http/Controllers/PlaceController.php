@@ -15,7 +15,6 @@ class PlaceController extends Controller
     {
         $places = Place::where('creator_id', $userId)->get(); // Fetch places by user ID
         $user = Auth::user(); // Get authenticated user information (if needed)
-        
 
         return view('users.places', compact('places', 'user')); // Return to places view
     }
@@ -55,13 +54,13 @@ class PlaceController extends Controller
             'address' => 'required|string|max:255',
         ]);
 
-        if (Auth::check()) {
-            $creatorId = Auth::id();
-        } else {
-            // Handle the case where the user is not authenticated
-            return redirect()->route('login')->with('error', 'You need to be logged in to create a place.');
-        }
-
+        // if (Auth::check()) {
+        //     $creatorId = Auth::id();
+        // } else {
+        //     // Handle the case where the user is not authenticated
+        //     return redirect()->route('login')->with('error', 'You need to be logged in to create a place.');
+        // }
+        
         // Create a new place in the database
         Place::create([
             'title' => $request->input('title'),
@@ -70,7 +69,7 @@ class PlaceController extends Controller
             'creator_id' => Auth::id(),
         ]);
 
-        return redirect()->route('user.places', ['userId' => Auth::id()])->with('success', 'Place added successfully!'); // Redirect to user places with success message
+        return redirect()->route('user.places', ['creator_id' => Auth::id()])->with('success', 'Place added successfully!'); // Redirect to user places with success message
     }
     // Update the specified place
     public function update(Request $request, $id)

@@ -29,11 +29,19 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index'); // Route for users list
 
+// Route::middleware(['auth'])->group(function () {
+//     Route::post('/places', 'PlaceController@store'); // Adjust the URI and controller method as needed
+// });
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/places', [PlaceController::class, 'store'])->name('users.places');
+});
+
 // Show form to create a new place
 Route::get('/places/create', [PlaceController::class, 'create'])->name('places.create');
 
 // Store the newly created place
-Route::post('/places', [PlaceController::class, 'store'])->name('places.store');
+Route::post('/places', [PlaceController::class, 'store'])->name('users.places');
 
 Route::get('/users/{userId}/places', [UserController::class, 'show'])->name('user.places');
 
@@ -48,11 +56,11 @@ Route::get('/users/{userId}/places', [PlaceController::class, 'index'])->name('u
 Route::get('/places/{id}/edit', [PlaceController::class, 'edit'])->name('places.edit');
 
 // Route to handle the update of a specific place
-Route::put('/places/{id}', [PlaceController::class, 'update'])->name('places.update');
+Route::put('/places/{id}', [PlaceController::class, 'update'])->name('places.edit');
 
 
 // Route to delete a specific place
-Route::post('/places/delete', [PlaceController::class, 'delete'])->name('places.delete');
+Route::post('/places/delete', [PlaceController::class, 'delete'])->name('places.edit');
 
 Route::post('/logout', function() {
     

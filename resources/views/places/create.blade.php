@@ -24,7 +24,7 @@
         @endif
 
         {{-- Form to add a new place --}}
-        <form action="{{ route('places.store') }}" method="POST">
+        <form action="{{ route('users.places') }}" method="POST">
             @csrf {{-- Include CSRF token for security --}}
             
             <div class="form-control">
