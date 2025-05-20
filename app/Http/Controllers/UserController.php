@@ -19,7 +19,7 @@ class UserController extends Controller
     public function showOwnPlaces()
     {
         $user = Auth::user(); // Get the currently authenticated user
-        $places = $user->places; // Assuming you have a 'places' relationship
+        $places = $user->places; // fetch places base on a relationship
 
         return view('users.places', compact('user', 'places'));
     }
@@ -39,6 +39,6 @@ class UserController extends Controller
         // Get user's places
         $places = Place::where('creator_id', $userId)->get();
         
-        return view('users.places', compact('user', $places)); // Return user and places to the view
+        return view('users.places', compact('user', 'places')); // Return user and places to the view
     }
 }

@@ -32,9 +32,13 @@ Route::get('/users', [UserController::class, 'index'])->name('users.index'); // 
 // Route::middleware(['auth'])->group(function () {
 //     Route::post('/places', 'PlaceController@store'); // Adjust the URI and controller method as needed
 // });
-
+Route::get('/my-places', [UserController::class, 'showOwnPlaces'])->middleware('auth');
 Route::middleware(['auth'])->group(function () {
     Route::post('/places', [PlaceController::class, 'store'])->name('users.places');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/my-places', [UserController::class, 'showOwnPlaces'])->name('user.places');
+    Route::get('/users/{userId}/places', [UserController::class, 'show'])->name('user.places.show');
 });
 
 // Show form to create a new place

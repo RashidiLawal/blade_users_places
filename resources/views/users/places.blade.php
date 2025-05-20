@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', "{$user}'s Places - " . config('app.name'))
+{{-- @section('title', (Auth::check() ? Auth::user()->name : 'Guest') . "'s Places - " . config('app.name')) --}}
 
 @section('content')
     <style>
@@ -52,7 +53,7 @@
     </style>
 
     <div class="places-list">
-        <h2>{{ htmlspecialchars($user->name) }}'s Places</h2>
+        <h2>{{ htmlspecialchars($users->name) }}'s Places</h2>
         
         @if ($places->isEmpty())
             <p>No places found.</p>
@@ -67,7 +68,7 @@
                         <div class="actions">
                             <a href="{{ route('places.edit', $place->id) }}" class="btn btn-edit">Edit</a>
                             
-                            <form action="{{ route('places.delete') }}" method="POST" style="display: inline;">
+                            <form action="{{ route('places.edit') }}" method="POST" style="display: inline;">
                                 @csrf
                                 <input type="hidden" name="place_id" value="{{ $place->id }}">
                                 <button type="submit" class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>

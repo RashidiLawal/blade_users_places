@@ -20,7 +20,7 @@ class User extends Authenticatable
 
      public function places()
      {
-         return $this->hasMany(Place::class);
+         return $this->hasMany(Place::class, 'creator_id');
      }
 
     protected $fillable = [
