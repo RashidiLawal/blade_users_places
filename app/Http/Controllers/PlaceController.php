@@ -45,39 +45,6 @@ class PlaceController extends Controller
         return view('places.create'); // Show the form to create a new place
     }
 
-    public function storer(Request $request)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Please log in to create a place.');
-        }
-        // Validate the incoming request
-       $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'address' => 'required|string|max:255',
-        ]);
-
-        // dd(Auth::id());
-        // dd(Auth::check());
-        
-        // Place::create([
-        //     'title' => $request->input('title'),
-        //     'description' => $request->input('description'),
-        //     'address' => $request->input('address'),
-        //     'creator_id' => Auth::id()
-        // ]);
-
-        // return redirect()->route('user.places', ['userId' => Auth::id()])->with('success', 'Place added successfully!'); // Redirect to user places with success message
-
-        Place::create([
-            ...$validated,
-            'creator_id' => Auth::id() // Now guaranteed to have a value
-        ]);
-    
-        return redirect()->route('user.places', ['userId' => Auth::id()])
-            ->with('success', 'Place created!');
-    }
-
     public function store(Request $request)
 {
     $validated = $request->validate([
@@ -85,6 +52,8 @@ class PlaceController extends Controller
         'description' => 'nullable|string',
         'address' => 'nullable|string|max:255',
     ]);
+    //  dd(Auth::id());
+        // dd(Auth::check());
 
     Place::create([
         'title' => $validated['title'],
@@ -93,8 +62,11 @@ class PlaceController extends Controller
         'creator_id' => Auth::id() // Correct way to get authenticated user ID
     ]);
 
-    return redirect()->route('users.places')
-        ->with('success', 'Place created successfully!');
+    // return redirect()->route('users.places')
+    //     ->with('success', 'Place created successfully!');
+
+    return redirect()->route('user.places', ['userId' => Auth::id()])
+        ->with('success', 'Place created!');
 }
     // Update the specified place
     public function update(Request $request, $id)

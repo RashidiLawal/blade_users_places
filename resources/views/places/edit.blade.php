@@ -67,7 +67,7 @@
     @endif
 
     {{-- Form to update the place --}}
-    <form action="{{ route('places.update', $place->id) }}" method="POST">
+    <form action="{{ route('places.edit', $place->id) }}" method="POST">
         @csrf
         @method('PUT') {{-- Specify that we are making a PUT request --}}
         

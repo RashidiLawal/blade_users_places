@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', "{$user}'s Places - " . config('app.name'))
+{{-- @section('title', $user->name . "'s Places - " . config('app.name')) --}}
+@section('title', isset($user) ? "{$user->name}'s Places - " . config('app.name') : config('app.name'))
 {{-- @section('title', (Auth::check() ? Auth::user()->name : 'Guest') . "'s Places - " . config('app.name')) --}}
 
 @section('content')
@@ -53,7 +54,7 @@
     </style>
 
     <div class="places-list">
-        <h2>{{ htmlspecialchars($users->name) }}'s Places</h2>
+        <h2>{{ htmlspecialchars($user->name) }}'s Places</h2>
         
         @if ($places->isEmpty())
             <p>No places found.</p>

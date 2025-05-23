@@ -28,12 +28,9 @@ Route::post('/signup', [SignupController::class, 'store'])->name('signup');
 
 Route::get('/auth', fn() => view('auth.login'))->name('auth');
 
-Route::get('/my-places', [UserController::class, 'showOwnPlaces'])->middleware('auth');
-
+// Route::get('/my-places', [UserController::class, 'showOwnPlaces'])->middleware('auth');
 
 Route::get('/users/{userId}/places', [UserController::class, 'show'])->name('user.places');
-
-Route::get('/places', [UserController::class, 'showOwnPlaces'])->name('users.places');
 
 Route::get('/{path?}', [PageController::class, 'show'])->where('path', '.*'); // Catch all route
 
@@ -49,12 +46,5 @@ Route::put('/places/{id}', [PlaceController::class, 'update'])->name('places.edi
 
 // Route to delete a specific place
 Route::post('/places/delete', [PlaceController::class, 'delete'])->name('places.edit');
-// Route::post('/logout', function() {
-//     Auth::logout(); 
-//     // Clearing all session data and regenerate token
-//     request()->session()->invalidate();
-//     request()->session()->regenerateToken();
-    
-//     return redirect('/auth');
-// })->name('logout');
+
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
